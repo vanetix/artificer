@@ -19,5 +19,9 @@
     "generator"
   ],
   "author": "vanetix",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "marked": "~0.2.8",
+    "textile-js": "~0.1.1"
+  }
 }
