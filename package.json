@@ -1,0 +1,23 @@
+{
+  "name": "carpenter",
+  "version": "0.0.0",
+  "description": "Markdown to html site generator.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vanetix/carpenter.git"
+  },
+  "keywords": [
+    "static",
+    "site",
+    "generator"
+  ],
+  "author": "vanetix",
+  "license": "MIT"
+}
