@@ -22,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "marked": "~0.2.8",
-    "textile-js": "~0.1.1"
+    "textile-js": "~0.1.1",
+    "doxen": "0.0.1"
   }
 }
