@@ -1,0 +1,365 @@
+[
+  {
+    "tags": [],
+    "description": {
+      "full": "<p>Module dependencies</p>",
+      "summary": "<p>Module dependencies</p>",
+      "body": ""
+    },
+    "ignore": false,
+    "code": "var fs = require('fs'),\n    path = require('path'),\n    utils = exports = module.exports;",
+    "ctx": {
+      "type": "declaration",
+      "name": "fs",
+      "value": "require('fs'),",
+      "string": "fs"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Does path <code>p</code> exist?</p>",
+      "summary": "<p>Does path <code>p</code> exist?</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var exists = utils.exists = function(p) {\n  return fs.existsSync(p);\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "exists",
+      "value": "utils.exists = function(p) {",
+      "string": "exists"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Returns <code>true</code> if <code>p</code> is a directory</p>",
+      "summary": "<p>Returns <code>true</code> if <code>p</code> is a directory</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var isDir = utils.isDir = function(p) {\n  return exists(p) && fs.lstatSync(p).isDirectory();\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "isDir",
+      "value": "utils.isDir = function(p) {",
+      "string": "isDir"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Returns <code>true</code> if <code>p</code> is a file</p>",
+      "summary": "<p>Returns <code>true</code> if <code>p</code> is a file</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var isFile = utils.isFile = function(p) {\n  return exists(p) && fs.lstatSync(p).isFile();\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "isFile",
+      "value": "utils.isFile = function(p) {",
+      "string": "isFile"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Array"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Chunk <code>p</code> into parts</p>",
+      "summary": "<p>Chunk <code>p</code> into parts</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var splitPaths = utils.splitPaths = function(p) {\n  var ret = p.split(path.sep);\n  if(p.charAt(0) === '/') ret.shift();\n  return ret;\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "splitPaths",
+      "value": "utils.splitPaths = function(p) {",
+      "string": "splitPaths"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "String"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Return the name of file <code>p</code></p>",
+      "summary": "<p>Return the name of file <code>p</code></p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var fileName = utils.fileName = function(p) {\n  return path.basename(p, path.extname(p));\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "fileName",
+      "value": "utils.fileName = function(p) {",
+      "string": "fileName"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "a",
+        "description": ""
+      },
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "b",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "String"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Joins paths <code>a</code> and <code>b</code>, but replaces <code>b</code> ext with html</p>",
+      "summary": "<p>Joins paths <code>a</code> and <code>b</code>, but replaces <code>b</code> ext with html</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var joinPaths = utils.joinPaths = function(a, b) {\n  var f = fileName(b),\n      b = path.dirname(b);\n\n  return path.join(a, b, f + '.html');\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "joinPaths",
+      "value": "utils.joinPaths = function(a, b) {",
+      "string": "joinPaths"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Make all directories leading up to <code>p</code><br />like a unix <code>mkdir -p p</code></p>",
+      "summary": "<p>Make all directories leading up to <code>p</code><br />like a unix <code>mkdir -p p</code></p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var mkdir = utils.mkdir = function(p) {\n  var errors;\n\n  splitPaths(p).reduce(function(dirs, dir) {\n    dirs += dir + path.sep;\n    var s = path.resolve(dirs);\n\n    if(!exists(s)) {\n      try {\n        fs.mkdirSync(s);\n      } catch(e) {\n        errors = true;\n      }\n    }\n\n    return dirs;\n  }, '');\n\n  return !errors;\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "mkdir",
+      "value": "utils.mkdir = function(p) {",
+      "string": "mkdir"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Object"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Read the path <code>p</code> and return an object with files and directories</p>",
+      "summary": "<p>Read the path <code>p</code> and return an object with files and directories</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var readDir = utils.readDir = function(p) {\n  if(!isDir(p)) return false;\n  var dir = fs.readdirSync(p).map(function(f) {\n    return path.join(p, f);\n  });\n\n  return {\n    files: dir.filter(function(f) {\n      return isFile(f);\n    }),\n    directories: dir.filter(function(f) {\n      return isDir(f);\n    })\n  };\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "readDir",
+      "value": "utils.readDir = function(p) {",
+      "string": "readDir"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "String",
+          "Boolean"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Read file <code>p</code></p>",
+      "summary": "<p>Read file <code>p</code></p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var read = utils.read = function(p) {\n  if(!exists(p)) return false;\n\n  try {\n    return fs.readFileSync(p, 'utf8');\n  } catch(e) {\n    return false;\n  }\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "read",
+      "value": "utils.read = function(p) {",
+      "string": "read"
+    }
+  },
+  {
+    "tags": [
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "p",
+        "description": ""
+      },
+      {
+        "type": "param",
+        "types": [
+          "String"
+        ],
+        "name": "data",
+        "description": ""
+      },
+      {
+        "type": "return",
+        "types": [
+          "Boolean"
+        ],
+        "description": ""
+      }
+    ],
+    "description": {
+      "full": "<p>Write <code>data</code> to path <code>p</code> creating any directories on the way.</p>",
+      "summary": "<p>Write <code>data</code> to path <code>p</code> creating any directories on the way.</p>",
+      "body": ""
+    },
+    "isPrivate": false,
+    "ignore": false,
+    "code": "var write = utils.write = function(p, data) {\n  mkdir(path.dirname(p));\n\n  try {\n    fs.writeFileSync(p, data);\n    return true;\n  } catch(e) {\n    return false;\n  }\n};",
+    "ctx": {
+      "type": "declaration",
+      "name": "write",
+      "value": "utils.write = function(p, data) {",
+      "string": "write"
+    }
+  }
+]
