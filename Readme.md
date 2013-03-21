@@ -1,4 +1,4 @@
-# Artificer
+# Artificer [![Build Status](https://travis-ci.org/vanetix/artificer.png?branch=master)](https://travis-ci.org/vanetix/artificer)
 A command line static site generator.
 
 ## License (MIT)
