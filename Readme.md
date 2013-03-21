@@ -1,4 +1,4 @@
-# Carpenter
+# Artificer
 A command line static site generator.
 
 ## License (MIT)

@@ -1,28 +1,30 @@
 {
-  "name": "carpenter",
+  "name": "artificer",
   "version": "0.0.0",
   "description": "Markdown to html site generator.",
+  "author": "vanetix",
   "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "make test"
-  },
   "repository": {
     "type": "git",
-    "url": "https://github.com/vanetix/carpenter.git"
+    "url": "https://github.com/vanetix/artificer.git"
   },
   "keywords": [
     "static",
     "site",
     "generator"
   ],
-  "author": "vanetix",
-  "license": "MIT",
+  "scripts": {
+    "test": "make test"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
   "dependencies": {
+    "doxen": "0.0.1",
     "marked": "~0.2.8",
+    "commander": "~1.1.1",
     "textile-js": "~0.1.1",
-    "doxen": "0.0.1"
+    "handlebars": "~1.0.10"
   }
 }

@@ -1,2 +1,0 @@
-  usage: carpenter [source dir] [destination]
-    -c --config [FILE] change default name carpenter uses for configuration files
