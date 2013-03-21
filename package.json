@@ -1,12 +1,15 @@
 {
   "name": "artificer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Markdown to html site generator.",
   "author": "vanetix",
   "main": "index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/vanetix/artificer.git"
+  },
+  "bin": {
+    "artificer": "./bin/artificer"
   },
   "keywords": [
     "static",

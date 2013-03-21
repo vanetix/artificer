@@ -15,10 +15,11 @@ var artificer = require('../'),
 
 commander
   .version(package.version)
+  .option('-v, --verbose', 'output verbose logging messages')
+  .option('-t, --title [NAME]', 'set the title on generated pages', '')
   .option('-s, --source [PATH]', 'source directory path - must be a directory', '')
   .option('-d, --destination [PATH]', 'destination directory path - must not exist', '')
-  .option('-c, --config [NAME]', 'change the default name artificer uses for configuration files')
-  .option('-t, --title [NAME]', 'set the title on generated pages', '')
+  .option('-l, --layout [PATH]' 'handlebars layout to use for render - {{title}} and {{content}} are passed')
   .parse(process.argv);
 
 /**
@@ -33,16 +34,17 @@ if(!src || !dest) {
 }
 
 if(!utils.exists(src) || utils.isFile(src)) {
-  process.stdout.write('  Source directory does not exist');
+  process.stdout.write('  Source directory does not exist.\n');
   commander.help();
 }
 
 if(utils.exists(dest)) {
-  process.stdout.write('  Destination already exists on the filesystem');
+  process.stdout.write('  Destination already exists on the filesystem.\n');
   commander.help();
 }
 
 artificer(src, dest, {
   title: commander.title,
-  config: commander.config
+  config: commander.config,
+  verbose: commander.verbose
 });
