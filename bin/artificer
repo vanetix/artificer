@@ -1,0 +1,48 @@
+#!/usr/bin/env node
+
+/**
+ * Script dependencies
+ */
+
+var artificer = require('../'),
+    utils = require('../lib/utils'),
+    package = require('../package'),
+    commander = require('commander');
+
+/**
+ * Commander options
+ */
+
+commander
+  .version(package.version)
+  .option('-s, --source [PATH]', 'source directory path - must be a directory', '')
+  .option('-d, --destination [PATH]', 'destination directory path - must not exist', '')
+  .option('-c, --config [NAME]', 'change the default name artificer uses for configuration files')
+  .option('-t, --title [NAME]', 'set the title on generated pages', '')
+  .parse(process.argv);
+
+/**
+ * Main script logic
+ */
+
+var src = commander.source,
+    dest = commander.destination;
+
+if(!src || !dest) {
+  commander.help();
+}
+
+if(!utils.exists(src) || utils.isFile(src)) {
+  process.stdout.write('  Source directory does not exist');
+  commander.help();
+}
+
+if(utils.exists(dest)) {
+  process.stdout.write('  Destination already exists on the filesystem');
+  commander.help();
+}
+
+artificer(src, dest, {
+  title: commander.title,
+  config: commander.config
+});
