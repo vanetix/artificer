@@ -1,6 +1,16 @@
 # Artificer [![Build Status](https://travis-ci.org/vanetix/artificer.png?branch=master)](https://travis-ci.org/vanetix/artificer)
 A command line static site generator.
 
+## Installation
+```shell
+npm install -g artificer
+```
+
+## Usage
+```shell
+artificer ./docs ./www
+```
+
 ## License (MIT)
 Copyright (c) 2013 Matt McFarland
 
