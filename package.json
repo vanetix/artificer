@@ -1,6 +1,6 @@
 {
   "name": "artificer",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Markdown to html site generator.",
   "author": "vanetix",
   "main": "index.js",
